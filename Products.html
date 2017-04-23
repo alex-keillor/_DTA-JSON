@@ -1,0 +1,145 @@
+
+<!-- Process JSON feed and display in app when link clicked -->
+<script>
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>DTA: Developer Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="./index.html">Insert Logo here</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./index.html">Home</a></li>
+        <li><a href="#">About - Not implemented</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="#">Contact - Not implemented</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">About - Not implemented</a></p>
+      <p><a href="./products.html">Products</a></p>
+      <p><a href="#">Contact - Not implemented</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        <p>
+        <h1>Product Catalogue - JSON feed</h1>
+        <p>Hung up on the nulls in the objects and how to parse them ... out of time.</p>
+        <script>
+            var text = "<h1>Cataologue</h1>";
+            /*
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myArr = JSON.parse(this.responseText);
+                document.getElementById("ajax-container").innerHTML = myArr[0];
+                }
+            };
+            xmlhttp.open("GET", "https://api.myjson.com/bins/gx6vz", true);
+            xmlhttp.send();
+            */
+
+            /*
+            $.getJSON("https://api.myjson.com/bins/gx6vz", function(data){
+                $.each(data, function(index, value){
+                    var obj=jQuery.parseJSON(value);
+                    var myObj = JSON.stringify(obj);
+                    //process string JSON object  
+                    var name, unitPrice, specialQuan, specialPrice;
+                    name = myObj.name;
+                    unitPrice = myObj.unit_price;
+                    specialQuan = myObj.special_qty;
+                    specialPrice = myObj.special_price;
+                    text += "Name:&nbsp;" + name + "<br />UnitPrice: " + unitPrice + "<br/>Special Quantity:&nbsp;"+specialQuan + "<br/>Special Price:&nbsp;" + specialPrice;
+                })
+            })
+            document.getElementById("ajax-container").innerHTML =  text;
+            */
+            var feedText=""
+            feedtext= {"prices":[{"name":"A","unit_price":20,"special_qty":3,"special_price":50},{"name":"B","unit_price":30,"special_qty":4,"special_price":80},{"name":"C","unit_price":40},{"name":"D","unit_price":50,"special_qty":2,"special_price":90},{"name":"E","unit_price":60}]};
+            
+            for (items in feedText.prices)
+            {
+                document.getElementById("ajax-container").innerHTML += feedText[items];
+            }
+        </script>
+        <a href="https://api.myjson.com/bins/gx6vz" target="_blank">https://api.myjson.com/bins/gx6vz</a>
+        <div id="ajax-container">
+            
+        </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+                <h1>CART</h1>
+        <p>didn't get to this bit as got hung on the nulls in the JSON feed,<br />
+        </p>with data I consume I guess i am used to being able to have it validated or to ensure "correctness" before being consumed"</p>
+        <p>This aspect of the page would handle add to cart like functions.<br/>
+        My preference would have been for server side processing </p>
+        <p>
+          <div>
+            <span><b>Name:</b></span><span&nbsp;></span><span>[name]</span><br/>
+            <span><b>Unit Price:</b></span><span&nbsp;></span><span>[unit_price]</span><br/>
+            <p><i>Conditional logic around whether special quantity-price combination had been selected</i></p>
+            <span><b>Quanity:</b></span><span&nbsp;></span><span>quantity chosen</span><br/>
+            <span><b>Special quanity:</b></span><span&nbsp;></span><span>special quantity if chosen based on conditional logic</span><br/>
+            <span><b>Special price:</b></span><span&nbsp;></span><span>special quantity price if chosen based on number of special quantities selected by the user</span><br/>
+            <p>Repeat as necessary</p>
+            <hr>
+            <span><b>Total Price:</b></span><span&nbsp;></span><span>add up unit prices and special quantity pricing based upon quanity of each line item selected</span><br/>
+            <span><b>Postage and Handling:</b></span><span&nbsp;></span><span>$25.00 Aus / $100 international</span><br/>
+            <span><b>GST:</b></span><span&nbsp;></span><span>Divide price by 1/11 [$0.00]</span><br/>
+            <span><b>Order TOTAL:</b></span><span&nbsp;></span><span>$0.00</span><br/>
+            <hr>
+            <span><b>Payment Type:</b></span><span&nbsp;></span><br/>
+              <span>
+                <form>
+                  <input type="radio" Name="paymentType" Value="visa">Visa<br/>
+                  <input type="radio" Name="paymentType" Value="MasterCard">MasterCard<br/>
+                  <input type="radio" Name="paymentType" Value="PayPal"> PayPal<br/>
+                  <input type="radio" Name="paymentType" Value="BitCoin"> BitCoin<br/>
+                </form>
+                <input type="submit" onclick="alert('TODO: Submission Logic')">
+              </span><br/>
+          </div>
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>&copy;&nbsp;2017</p>
+  <p>Alexander Keillor</p>
+  <p>m:&nbsp;0419 716 076<br/>e:&nbsp;<a href="mailto:alexjad@bigpond.net.au?subject=DTA exercise - site feedback" style="color:white;text-decoration:none;">alexjad@bigpond.net.au</a></p>
+</footer>
+
+</body>
+</html>

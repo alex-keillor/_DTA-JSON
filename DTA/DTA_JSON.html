@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>DTA: Developer Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Insert Logo here</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About - Not implemented</a></li>
+        <li><a href="#">Products - Not implemented</a></li>
+        <li><a href="#">Contact - Not implemented</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id="cart"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">About - Not implemented</a></p>
+      <p><a href="#">Products - Not implemented</a></p>
+      <p><a href="#">Contact - Not implemented</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        <h1>DTA Developer examination for Alexander Keillor.</h1>
+        <div id=""ajax-container">
+            <p>This is an atttempt at a wireframe or a proof of concept for an app that can consume a JSON feed for a product catalogue</p>
+            <p>Note: all logic is client based.  All data access logic and processing is client side.  </p>
+            <ul>Hence the reader is asked to be mindful of the following: 
+            <li>no vaidation due to time constraints </li>
+            <li>no server side components or dependencies are provided BUT would be essential to any production implmentation  </li>
+            <li>there is no database or business logic layers - all logic is in the client.  Again this makes this a partial solution in the authors view</li>
+            <li>this is not a real shopping cart - very important to remember ;-)</li>
+            <li>there is no payment gateway integration into merchange baking systems, paypal, bitcoin interchange, etc. again requires a robust and secure production environment</li>
+            <li>etc, etc and ad nauseam to re-affirm this is a wireframe or mockup</li>
+            </ul>
+            <p>Click the Menu option <a href="#">Products</a> to access an AJAX representation of an online shopping site based on the supplied JSON products feed.</p>
+            <p>Built using a Visual Studio Code on a Windows 10 Machine in HTML5, Bootstrap JS Framework and custom AJaX/AHaH <br />
+            * AJAX = Asynchronous JavaScript and XML<br/>
+            * AHAH = Asynchronous HTML and HTTP<br />
+            {This solution is based on similar code patterns using HTML snippets and JavaScript that the author applied to win a university 
+            award as a rudimentary single page application}</p>
+            <p>This was lots of fun to play with and learn/revise key concepts ... thanks as this excercise has been fun!</p>
+            <p>
+                <h3>References</h3>
+                <a href="https://www.w3schools.com" target="_blank">W3schools</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>CART</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>&copy;&nbsp;2017</p>
+  <p>Alexander Keillor</p>
+  <p>m:&nbsp;0419 716 076<br/>e:&nbsp;<a href="mailto:alexjad@bigpond.net.au?subject=DTA exercise - site feedback" style="color:white;text-decoration:none;">alexjad@bigpond.net.au</a></p>
+</footer>
+
+</body>
+</html>
